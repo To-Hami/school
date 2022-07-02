@@ -1,0 +1,57 @@
+
+.btn-success {
+    color: #fff;
+    background-color: #17a2b8;
+    border: 2px solid #17a2b8;
+    border-radius: 20px;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #17a2b8;
+    border: 2px solid #17a2b8;
+    border-radius: 20px;
+}
+.form-control{
+    border: 2px solid #17a2b8 !important;
+    border-radius: 20px !important;
+}
+.list_problems{
+    border: 2px solid #17a2b8;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+    font-size: 17px;
+}
+.button {
+    background-color: #17a2b8;
+    border: 2px solid #17a2b8;
+}
+.button:hover {
+    background-color: #17a2b8;
+    border: 2px solid #17a2b8;
+}
+
+.pagination .page-item.active .page-link{
+    background: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+    color: #ffffff;
+}
+.selectpicker {
+    border: 2px solid #17a2b8;
+    border-radius: 10px;
+    padding: 10px;
+}
+.accordion.gray .acd-group.acd-active .acd-heading{
+    color: #ffffff;
+    background: #17a2b8;
+}
+.accordion.gray .acd-heading:hover:hover{
+    color: #ffffff;
+    background: #17a2b8;
+}
+.show > .btn-success.dropdown-toggle{
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
