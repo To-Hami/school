@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Classrooms;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreClassroom;
+use App\Imports\StudantImport;
 use App\Models\Classroom;
 
 use App\Models\Grades\Grade;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClassroomController extends Controller
 {
@@ -122,6 +125,17 @@ class ClassroomController extends Controller
     }
 
 
+
+    public  function students($id){
+        return view('pages.Students.import');
+    }
+
+    public  function importExcel(Request $request){
+        Excel::import(new StudantImport(), $request->file);
+
+        $students  = Student::all();
+        return view('pages.Students.index', compact('students'));
+    }
 }
 
 ?>

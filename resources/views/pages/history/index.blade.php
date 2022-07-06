@@ -53,19 +53,19 @@
 
                                     </div>
 
-                                    <div class="col-md-4">
+{{--                                    <div class="col-md-4">--}}
 
-                                        <div class="form-group">
-                                            <label> تاريخ التأسيس : <span
-                                                    class="text-danger">*</span></label>
-                                            <input type="text" name="history" class="form-control"
-                                                   value="{{$history->history}}">
-                                        </div>
-                                        @error('history')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+{{--                                        <div class="form-group">--}}
+{{--                                            <label> تاريخ التأسيس : <span--}}
+{{--                                                    class="text-danger">*</span></label>--}}
+{{--                                            <input type="text" name="history" class="form-control"--}}
+{{--                                                   value="{{$history->history}}">--}}
+{{--                                        </div>--}}
+{{--                                        @error('history')--}}
+{{--                                        <div class="alert alert-danger">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
 
-                                    </div>
+{{--                                    </div>--}}
                                     <div class="col-md-4">
                                         <label for="title"> المرحلة الدراسية :</label>
                                         <div class='input-group'>
@@ -102,18 +102,18 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-4">
-                                        <label for="title"> الجوال :</label>
-                                        <div class='input-group'>
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <label for="title"> الجوال :</label>--}}
+{{--                                        <div class='input-group'>--}}
 
-                                            <input type="number" value="{{$history->manager_phone}}"
-                                                   class="  form-control"
-                                                   name="manager_phone" required/>
-                                        </div>
-                                        @error('manager_phone')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+{{--                                            <input type="number" value="{{$history->manager_phone}}"--}}
+{{--                                                   class="  form-control"--}}
+{{--                                                   name="manager_phone" required/>--}}
+{{--                                        </div>--}}
+{{--                                        @error('manager_phone')--}}
+{{--                                        <div class="alert alert-danger">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
 
 
                                     <div class="col-md-4">
@@ -147,13 +147,14 @@
                                         <div id="map" style="height: 500px;width: 1000px;"></div>
                                     </div>
 
-
+                                    @if (auth()->user()->hasPermission('edit_history'))
                                     <div class="col-md-10">
                                         <button style="margin-top: 100px"
                                                 class="btn btn-success btn-lg nextBtn btn-lg pull-right"
                                                 type="submit">{{trans('Students_trans.submit')}}
                                         </button>
                                     </div>
+                                        @endif
                                 </div>
 
                             </form>

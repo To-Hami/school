@@ -11,13 +11,13 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('date');
-            $table->text('details');
-            $table->text('video');
-            $table->text('manager');
-            $table->text('support');
-            $table->text('targets');
+            $table->string('name')->nullable();
+            $table->string('date')->nullable();
+            $table->text('details')->nullable();
+            $table->text('video')->nullable();
+            $table->text('manager')->nullable();
+            $table->text('support')->nullable();
+            $table->text('targets')->nullable();
             $table->timestamps();
 
 

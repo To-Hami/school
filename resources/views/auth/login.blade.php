@@ -93,8 +93,15 @@ login-->
                                 @enderror
 
                             </div>
-
                             <button class="button"><span>دخول</span><i class="fa fa-check"></i></button>
+
+                        @if (Route::has('password.request'))
+                                <a class="btn btn-link button" href="{{ route('password.request') }}">
+                                    نسيت كلمة المرور ؟
+                                </a>
+                            @endif
+
+
                         </form>
                     </div>
                 </div>

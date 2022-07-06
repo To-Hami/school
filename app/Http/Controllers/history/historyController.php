@@ -20,11 +20,10 @@ class historyController extends Controller
 
         $history = History::where('id', $id)->first();
         $history->name = $request->name;
-        $history->history = $request->history;
+//        $history->history = $request->history;
         $history->grade = $request->grade;
         $history->manager_name = $request->manager_name;
         $history->manager_email = $request->manager_email;
-        $history->manager_phone = $request->manager_phone;
         $history->number = $request->number;
         $history->location = $request->location;
         $history->save();

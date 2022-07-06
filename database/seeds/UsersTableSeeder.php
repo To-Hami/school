@@ -13,5 +13,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@app.com',
             'password' => bcrypt('password'),
         ]);
+        $user->attachRole('super_admin');
+
     }
 }

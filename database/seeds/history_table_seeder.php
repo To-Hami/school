@@ -15,8 +15,8 @@ class history_table_seeder extends Seeder
                 'manager_name' =>'احمد ابراهيم',
                 'manager_email' => 'ahmed@gmail.com',
                 'manager_phone' =>'0562586458',
+                'number' =>'86458',
                 'history' => '1430',
-                'number' =>'45876',
                 'grade' =>'المرحلة الاعدادية ',
                 'location' =>' الطائف البيعة شارع 15 ',
 

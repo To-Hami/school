@@ -20,8 +20,12 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
+                    @if (auth()->user()->hasPermission('edit_grades'))
+
                     <a class="button x-small" href="#" data-toggle="modal" data-target="#exampleModal">
-                        {{ trans('Sections_trans.add_section') }}</a>
+                        {{ trans('Sections_trans.add_section') }}
+                    </a>
+                        @endif
                 </div>
 
                 @if ($errors->any())
@@ -87,6 +91,7 @@
 
                                                                         </td>
                                                                         <td>
+                                                                            @if (auth()->user()->hasPermission('edit_grades'))
 
                                                                             <a href="#"
                                                                                class="btn btn-outline-info btn-sm"
@@ -96,6 +101,7 @@
                                                                                class="btn btn-outline-danger btn-sm"
                                                                                data-toggle="modal"
                                                                                data-target="#delete{{ $list_Sections->id }}">{{ trans('Sections_trans.Delete') }}</a>
+                                                                       @endif
                                                                         </td>
                                                                     </tr>
 

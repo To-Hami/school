@@ -21,6 +21,7 @@
         "livewire/livewire": "^2.10",
         "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^1.7",
+        "santigarcor/laratrust": "5.2.*",
         "spatie/laravel-translatable": "^4.6",
         "yoeunes/toastr": "^2.0"
     },

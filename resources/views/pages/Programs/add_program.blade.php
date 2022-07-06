@@ -41,7 +41,7 @@
 
                                         <div class="form-group">
                                             <label>اسم البرنامج : <span
-                                                    class="text-danger">*</span></label>
+                                                    class="text-danger"></span></label>
                                             <input type="text" name="name" class="form-control">
                                         </div>
 
@@ -52,18 +52,18 @@
                                         <div class='input-group'>
 
                                             <input type="text" class=" form-control"
-                                                   name="manager" required/>
+                                                   name="manager" />
                                         </div>
                                         @error('manager')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="title">تاريخ الاحداث :</label>
+                                        <label for="title">تاريخ البرنامج :</label>
                                         <div class='input-group'>
 
                                             <input id="hijri_picker" type="text" class="hijri-date-input  form-control"
-                                                   name="date" required/>
+                                                   name="date" />
                                         </div>
                                         @error('date')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -74,7 +74,7 @@
                                         <div class='input-group'>
 
                                             <input type="text" class=" form-control"
-                                                   name="support" required/>
+                                                   name="support" />
                                         </div>
                                         @error('support')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -85,7 +85,7 @@
                                         <div class='input-group'>
 
                                             <input type="text" class=" form-control"
-                                                   name="targets" required/>
+                                                   name="targets" />
                                         </div>
                                         @error('targets')
                                         <div class="alert alert-danger">{{ $message }}</div>

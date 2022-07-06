@@ -16,9 +16,6 @@
     <div class="row">
 
 
-
-
-
         <div class="col-xl-12 mb-30 table-responsive">
             <div class="card card-statistics h-100 table-responsivGre">
                 <div class="card-body table-responsive">
@@ -32,11 +29,12 @@
                             </ul>
                         </div>
                     @endif
-
-                    <button type="button" class="button x-small" style="margin: 10px" data-toggle="modal" data-target="#exampleModal">
-                        {{ trans('Grades_trans.add_Grade') }}
-                    </button>
-
+                    @if (auth()->user()->hasPermission('create_grades'))
+                        <button type="button" class="button x-small" style="margin: 10px" data-toggle="modal"
+                                data-target="#exampleModal">
+                            {{ trans('Grades_trans.add_Grade') }}
+                        </button>
+                    @endif
 
                     <div class="table-responsive">
                         <table id="datatable" class="table  table-hover table-sm table-bordered p-0 "
@@ -59,6 +57,8 @@
                                     <td>{{ $Grade->Name }}</td>
                                     <td>{{ $Grade->Notes }}</td>
                                     <td>
+                                        @if (auth()->user()->hasPermission('edit_grades'))
+
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                                 data-target="#edit{{ $Grade->id }}"
                                                 title="{{ trans('Grades_trans.Edit') }}"><i class="fa fa-edit"></i>
@@ -67,6 +67,7 @@
                                                 data-target="#delete{{ $Grade->id }}"
                                                 title="{{ trans('Grades_trans.Delete') }}"><i
                                                 class="fa fa-trash"></i></button>
+                                            @endif
                                     </td>
                                 </tr>
 
@@ -144,19 +145,22 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('grades.destroy', $Grade->id) }}" method="post">
-                                                    {{ method_field('Delete') }}
-                                                    @csrf
-                                                    {{ trans('Grades_trans.Warning_Grade') }}
-                                                    <input id="id" type="hidden" name="id" class="form-control"
-                                                           value="{{ $Grade->id }}">
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">{{ trans('Grades_trans.Close') }}</button>
-                                                        <button type="submit"
-                                                                class="btn btn-danger">{{ trans('Grades_trans.submit') }}</button>
-                                                    </div>
-                                                </form>
+                                                @if (auth()->user()->hasPermission('edit_grades'))
+                                                    <form action="{{ route('grades.destroy', $Grade->id) }}"
+                                                          method="post">
+                                                        {{ method_field('Delete') }}
+                                                        @csrf
+                                                        {{ trans('Grades_trans.Warning_Grade') }}
+                                                        <input id="id" type="hidden" name="id" class="form-control"
+                                                               value="{{ $Grade->id }}">
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">{{ trans('Grades_trans.Close') }}</button>
+                                                            <button type="submit"
+                                                                    class="btn btn-danger">{{ trans('Grades_trans.submit') }}</button>
+                                                        </div>
+                                                    </form>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

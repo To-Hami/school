@@ -12,12 +12,12 @@ class CreateHistoryTable extends Migration
         Schema::create('history', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('manager_name');
-            $table->string('manager_phone');
-            $table->string('manager_email');
-            $table->string('history');
-            $table->string('number');
-            $table->string('grade');
+            $table->string('manager_name')->nullable();
+            $table->string('manager_phone')->nullable();
+            $table->string('manager_email')->nullable();
+            $table->string('number')->nullable();
+            $table->string('history')->nullable();
+            $table->string('grade')->nullable();
             $table->string('location')->nullable();
             $table->timestamps();
         });

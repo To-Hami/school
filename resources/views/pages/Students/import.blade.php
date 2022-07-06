@@ -30,7 +30,7 @@
                     </div>
                 @endif
 
-                <form method="post"  action="{{ route('Students.import.file') }}" autocomplete="off" enctype="multipart/form-data">
+                <form method="post"  action="{{ route('classrooms.import.file') }}" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <h6 style="font-family: 'Cairo', sans-serif;color: blue"></h6><br>
                         <div class="row">

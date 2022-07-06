@@ -29,6 +29,24 @@
                     @endif
                     <div class="details" style="overflow: hidden">
                         <div class="print">
+                            <h3 style="text-align: center;margin: 20px">استمارة توثيق طالب</h3>
+                            <div class="row" style="margin: 20px 0">
+                                <div class="col-md-4">
+                                    <h5>المملكة العربية السعودية </h5>
+                                    <h5>وزارة التعليم </h5>
+                                    <h5>الطائف </h5>
+                                    <h5>شمال الطائف</h5>
+                                    <h5>التوجيه والارشاد</h5>
+                                </div>
+                                <div class="col-md-4" style="overflow: hidden">
+                                    <img style="width: 100%;height: 100%" src="{{asset('assets/images/education.jpg')}}">
+                                </div>
+                                <div class="col-md-4" style="overflow: hidden">
+                                    <img src="{{asset('assets/images/vison.png')}}" style="width: 100%;height: 100%">
+
+                                </div>
+                            </div>
+
                             <button class="btn btn-success btn-lg  btn-lg " type="reset" style="margin: 10px 0">تفاصيل
                                 الطالب
                                 الاضافية :
@@ -155,6 +173,7 @@
                     </div>
 
                     <br>
+                        <hr>
                     <div class="addProblem">
 
                         <form method="POST" action="{{ route('updateProblems',$student->id) }}" autocomplete="off"
@@ -267,7 +286,30 @@
 
         $(document).on('click', '.print_ptn', function () {
 
-            $('.print').printThis();
+            $('.print').printThis({
+
+                debug: true,               // show the iframe for debugging
+                importCSS: true,            // import parent page css
+                importStyle: true,         // import style tags
+                printContainer: true,       // print outer container/$.selector
+                loadCSS: "{{asset('assets/css/print.css')}}",                // path to additional css file - use an array [] for multiple
+                pageTitle: "",              // add title to print page
+                removeInline: false,        // remove inline styles from print elements
+                removeInlineSelector: "*",  // custom selectors to filter inline styles. removeInline must be true
+                printDelay: 333,            // variable print delay
+                footer: null,               // postfix to html
+                base: false,                // preserve the BASE tag or accept a string for the URL
+                formValues: false,           // preserve input/form values
+                canvas: false,              // copy canvas content
+                doctypeString: '...',       // enter a different doctype for older markup
+                removeScripts: false,       // remove script tags from print content
+                copyTagClasses: false,      // copy classes from the html & body tag
+                beforePrintEvent: null,     // function for printEvent in iframe
+                beforePrint: null,          // function called before iframe is filled
+                afterPrint: null  ,          // function called before iframe is removed
+
+
+            });
 
         });
     </script>

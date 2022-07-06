@@ -15,7 +15,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 Route::group([ 'middleware' =>'auth'],function(){
 
     Route::get('/','HomeController@index')->name('dashboard');
@@ -35,6 +35,8 @@ Route::group([ 'middleware' =>'auth'],function(){
         Route::resource('Classrooms', 'ClassroomController');
         Route::post('delete_all', 'ClassroomController@delete_all')->name('delete_all');
         Route::post('Filter_Classes', 'ClassroomController@Filter_Classes')->name('Filter_Classes');
+        Route::get('students/{id}', 'ClassroomController@students')->name('Classrooms.students');
+        Route::post('classrooms/import/file', 'ClassroomController@importExcel')->name('classrooms.import.file');
 
     });
 

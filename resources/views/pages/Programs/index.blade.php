@@ -22,8 +22,11 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
+                                @if (auth()->user()->hasPermission('edit_grades'))
+
                                 <a href="{{route('programs.create')}}" class="btn btn-success btn-lg" role="button"
                                    aria-pressed="true">اضافة برنامج : </a><br><br>
+                                @endif
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -50,7 +53,19 @@
 
                                                 <td>
                                                     <div class="dropdown show">
+                                                        <a href="{{route('programs.show',$program->id)}}">
+                                                            <i style="    display: inline;
+                                                                   color: #17a2b8;
+                                                                    width: 10px;
+                                                                    height: 10px;
+                                                                    border: 2px solid #17a2b8;
+                                                                    padding: 6px;
 
+                                                                    border-radius: 5px;" class="fa fa-eye"></i>
+                                                            <input type="hidden" name="id" value="{{$program->id}}">
+
+                                                        </a>
+                                                        @if (auth()->user()->hasPermission('edit_grades'))
 
                                                         <a data-target="#Delete_Student{{ $program->id }}"
                                                            data-toggle="modal"
@@ -63,6 +78,7 @@
 
                                                                 border-radius: 5px;" class="fa fa-trash"></i>
                                                         </a>
+                                                        @endif
                                                         <a href="{{route('programs.edit',$program->id)}}">
                                                             <i style="    display: inline;
                                                                    color: #17a2b8;

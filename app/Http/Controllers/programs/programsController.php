@@ -117,5 +117,17 @@ class programsController extends Controller
         return redirect()->route('programs.index');
 
     }
+    public function show(Request $request, $id){
+
+        function getYoutubeId($url)
+        {
+            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+            return isset($match[1])?$match[1]:null;
+        }
+        $programs = Program::where('id', $id)->first();
+
+        return view('Pages.Programs.show_program', compact('programs'));
+
+    }
 
 }

@@ -22,8 +22,12 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
+                                @if (auth()->user()->hasPermission('edit_grades'))
+
                                 <a href="{{route('Students.create')}}" class="btn btn-success btn-lg" role="button"
-                                   aria-pressed="true">{{trans('main_trans.add_student')}}</a>
+                                   aria-pressed="true">{{trans('main_trans.add_student')}}
+                                </a>
+                                @endif
 
 
                                 <a href="{{route('Students.import')}}" class="btn btn-success btn-lg" role="button"
@@ -66,6 +70,8 @@
                                                                 class="fa fa-eye">
                                                             </i>&nbsp;
                                                         </a>
+                                                        @if (auth()->user()->hasPermission('edit_grades'))
+
                                                         <a class="btn btn-outline-success btn-sm"
                                                            href="{{route('Students.edit',$student->id)}}"
                                                            role="button">
@@ -78,6 +84,7 @@
                                                                  class="fa fa-trash"></i>
 
                                                         </a>
+                                                            @endif
 
                                                     </div>
 

@@ -126,6 +126,7 @@ class StudentController extends Controller
     public function importExcel(Request $request)
     {
         Excel::import(new StudantImport(), $request->file);
+
         $students  = Student::all();
         return view('pages.Students.index', compact('students'));
     }

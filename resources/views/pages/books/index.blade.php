@@ -22,8 +22,11 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
+                                @if (auth()->user()->hasPermission('edit_grades'))
+
                                 <a href="{{route('books.create')}}" class="btn btn-success btn-lg" role="button"
                                    aria-pressed="true">اضافة مرجع : </a><br><br>
+                                @endif
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
@@ -59,6 +62,7 @@
                                                                role="button"><i
                                                                     class="fa fa-download"></i>&nbsp;
                                                                 تحميل</a>
+                                                        @if (auth()->user()->hasPermission('edit_grades'))
 
                                                         <a data-target="#Delete_Student{{ $book->id }}"
                                                            class="btn btn-outline-danger btn-sm"
@@ -67,6 +71,7 @@
                                                                role="button"><i
                                                                     class="fa fa-trash"></i>&nbsp;
                                                                 حزف</a>
+                                                            @endif
 
                                                     </div>
                                                 </td>
